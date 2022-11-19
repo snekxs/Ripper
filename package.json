@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.1.0",
+    "discord-webhook-node": "^1.1.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

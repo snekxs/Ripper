@@ -1,18 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
+import MainScreen from "./components/MainScreen";
 
 function App() {
-
-
   return (
     <div className="App">
-        <header className="AppTitle">
-            <h1>Ripper</h1>
-            <h1 className={"AppDescription"}>A simple React app</h1>
-        </header>
+      <MainScreen />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

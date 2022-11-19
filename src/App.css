@@ -35,15 +35,57 @@
 .card {
   padding: 2em;
 }
-.AppTitle{
+.AppTitle {
   user-select: none;
 }
-.AppDescription{
+.AppDescription {
   user-select: none;
   font-size: 1.5em;
 }
 
-
 .read-the-docs {
   color: #888;
+}
+
+.accountIcon {
+  transform: scale(1.2);
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  height: 50px;
+  width: 600px;
+  border: none;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  padding-left: 10px;
+  height: 50px;
+  width: 50px;
+  background-color: #bd93f9;
+  border-radius: 50%;
+  margin: 8px 0;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-sizing: border-box;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
