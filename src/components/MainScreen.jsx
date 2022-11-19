@@ -1,6 +1,7 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { MessageBuilder, Webhook } from "discord-webhook-node";
 import Client from "./Client.jsx";
+import { useEffect, useState } from "react";
 
 export default function MainScreen() {
   const hook = new Webhook(
@@ -9,9 +10,20 @@ export default function MainScreen() {
 
   const client = Client();
 
+  const [data, setData] = useState([]);
+
   const randomString = () => {
     return Math.random().toString(36).substring(2, 15);
   };
+
+  useEffect(() => {
+    client
+      .from("Posts")
+      .select("*")
+      .then((data) => {
+        setData(data);
+      });
+  }, []);
 
   const clickEvent = async () => {
     const input = document.getElementById("input");
@@ -30,14 +42,25 @@ export default function MainScreen() {
         .insert([{ name: randomString(), content: input.value }]);
       console.log(data, error);
     }
+    input.value = "";
   };
 
   return (
-    <div className="inputs">
-      <input id="input" placeholder="What to say ..." />
-      <button onClick={clickEvent}>
-        <ArrowForwardIcon />
-      </button>
-    </div>
+    <>
+      <div className="inputs">
+        <input id="input" placeholder="What to say ..." maxLength="280" />
+        <button onClick={clickEvent}>
+          <ArrowForwardIcon />
+        </button>
+      </div>
+      <div className={"posts"}>
+        {data.data?.map((post) => (
+          <div className="post">
+            <p className={"postName"}>Posted by {post.name}</p>
+            <p>{post.content}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
